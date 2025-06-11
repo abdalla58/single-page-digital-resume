@@ -1,0 +1,40 @@
+{
+    "name": "Abdalla Ahmed",
+    "title": "Full-Stack Web Developer",
+    "email": "abdallaahmed.dev@gmail.com",
+    "address": "Giza, Egypt",
+    "phone": "01147465943",
+    "linkedin": "https://linkedin.com/in/abdallaahmed",
+    "github": "https://github.com/abdalla58",
+    "summary": "Passionate developer with experience in Laravel, PHP, and front-end technologies.",
+    "skills": [
+        "PHP",
+        "Laravel",
+        "MySQL",
+        "Tailwind CSS",
+        "JavaScript",
+        "HTML/CSS",
+        "OOP",
+        "SOLID Principles"
+    ],
+    "experience": [
+        {
+            "position": "Intern Software Engineer",
+            "company": "Huawei",
+            "duration": "June 2025 - August 2025",
+            "description": "Contributed to backend APIs using Laravel, optimized queries, and participated in team sprints."
+        },
+        {
+            "position": "Freelance Web Developer",
+            "company": "Self-Employed",
+            "duration": "2023 - Present",
+            "description": "Built custom websites for small businesses using Laravel and Tailwind CSS."
+        }
+    ],
+    "education": [
+        {
+            "degree": "BSc in Computer Science - Cairo University \t  Sep 2019 - July 2023",
+            "description": "Key Classes: Data Structures, Design and Analysis of Algorithms, Database, Operating Systems, Networks,\nSoftware Engineering, Data warehouse, Web Technology."
+        }
+    ]
+}
