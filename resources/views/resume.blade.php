@@ -4,9 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume - {{ $resume['name'] ?? '' }}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        const toggle = document.getElementById("dark-toggle");
+        const html = document.documentElement;
+
+        toggle.addEventListener("click", () => {
+            html.classList.toggle("dark");
+            localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+        });
+
+        if (localStorage.getItem('theme') === 'dark') {
+            html.classList.add('dark');
+        }
+    </script>
 </head>
+
+
 <body class="bg-gray-50 text-gray-800 font-sans">
+<button id="dark-toggle" class="absolute top-4 right-4 bg-gray-200 dark:bg-gray-900 text-sm text-amber-50 px-3 py-1 rounded">
+    Toggle Dark Mode
+</button>
 
 <div class="px-6 py-10 max-w-4xl mx-auto bg-white shadow-md rounded-lg">
     <!-- Header -->
@@ -20,10 +39,12 @@
             <p>{{ $resume['address'] ?? '' }}</p>
             <p>
                 @if(!empty($resume['linkedin']))
+                    <i class="fab fa-linkedin"></i>
                     <a href="{{ $resume['linkedin'] }}" class="text-blue-600 hover:underline" target="_blank">LinkedIn</a>
                 @endif
                 @if(!empty($resume['github']))
-                    | <a href="{{ $resume['github'] }}" class="text-blue-600 hover:underline" target="_blank">GitHub</a>
+                    | <i class="fab fa-github"></i>
+                        <a href="{{ $resume['github'] }}" class="text-blue-600 hover:underline" target="_blank">GitHub</a>
                 @endif
             </p>
         </div>
@@ -31,7 +52,7 @@
 
     <!-- Summary -->
     @if(!empty($resume['summary']))
-        <section class="mt-8">
+        <section class="mt-2">
             <h2 class="text-2xl font-semibold border-b mb-2">Summary</h2>
             <p class="text-gray-700">{{ $resume['summary'] }}</p>
         </section>
@@ -39,7 +60,7 @@
 
     <!-- Education -->
     @if(!empty($resume['education']))
-        <section class="mt-8">
+        <section class="mt-2">
             <h2 class="text-2xl font-semibold border-b mb-2">Education</h2>
             @foreach($resume['education'] as $education)
                 <div class="mb-4">
@@ -52,7 +73,7 @@
 
     <!-- Skills -->
     @if(!empty($resume['skills']))
-        <section class="mt-8">
+        <section class="mt-2">
             <h2 class="text-2xl font-semibold border-b mb-2">Skills</h2>
             <ul class="list-disc list-inside grid grid-cols-2 gap-1 text-gray-700">
                 @foreach($resume['skills'] as $skill)
@@ -64,7 +85,7 @@
 
     <!-- Experience -->
     @if(!empty($resume['experience']))
-        <section class="mt-8">
+        <section class="mt-2">
             <h2 class="text-2xl font-semibold border-b mb-2">Experience</h2>
             @foreach($resume['experience'] as $experience)
                 <div class="mb-6">
@@ -77,6 +98,13 @@
             @endforeach
         </section>
     @endif
+</div>
+  <!-- Download Button -->
+<div class="flex justify-center mt-4 mb-6">
+    <a href="{{ route('resume.download') }}"
+       class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition ">
+        Export As PDF
+    </a>
 </div>
 
 </body>
