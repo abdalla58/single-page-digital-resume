@@ -6,6 +6,7 @@ use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
 use League\CommonMark\CommonMarkConverter;
 use League\CommonMark\Exception\CommonMarkException;
 
@@ -45,7 +46,12 @@ class ResumeController extends Controller
     {
         $resume = $this->getData();
         $pdf= Pdf::loadView('pdf', compact('resume'));
-        return $pdf->download('Abdalla.pdf');
+        $filename = Str::slug($resume['name']). '.pdf';
+        if (request()->has('preview')) {
+            //dd('preview');
+            return $pdf->stream($filename); // View in browser
+        }
+        return $pdf->download($filename);
     }
 
     public function getData()
