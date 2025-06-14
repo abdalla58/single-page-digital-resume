@@ -1,4 +1,5 @@
 <?php
+
 test('resume', function () {
     $response = $this->get('/resume');
     $response->assertSee('Skills');
@@ -12,18 +13,17 @@ test('md', function () {
 test('download', function () {
     $response = $this->get('/resume/download');
     $response->assertStatus(200);
-    $response->assertHeader('content-disposition', 'attachment; filename=Abdalla_Ahmed.pdf');
+    $response->assertHeader('content-disposition', 'attachment; filename=abdalla-ahmed.pdf');
 });
 
-
-//namespace Tests\Feature;
-//use Illuminate\Foundation\Testing\RefreshDatabase;
-//use Illuminate\Foundation\Testing\WithFaker;
-//use Illuminate\Support\Facades\Storage;
-//use Tests\TestCase;
+// namespace Tests\Feature;
+// use Illuminate\Foundation\Testing\RefreshDatabase;
+// use Illuminate\Foundation\Testing\WithFaker;
+// use Illuminate\Support\Facades\Storage;
+// use Tests\TestCase;
 //
-//class ResumeFeatureTest extends TestCase
-//{
+// class ResumeFeatureTest extends TestCase
+// {
 //    /**
 //     * A basic feature test example.
 //     *
@@ -53,4 +53,4 @@ test('download', function () {
 //        $response->assertHeader('content-disposition', 'attachment; filename=Abdalla.pdf');
 //    }
 //
-//}
+// }
