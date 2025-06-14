@@ -33,7 +33,10 @@ To run this project locally:
 single-page-digital-resume.test
 
 ## ✏️ Editing  cv content 
-you can update the content by updating the resume.json file or the resume.md file in storage/app/public/resume.json or storage/app/public/resume.md
+you can update the content by updating the resume.json file or the resume.md file in 
+storage/app/public/resume.json 
+or 
+storage/app/public/resume.md
 
 ## 🧾 Testing
 *you can test the app by running the following command*:
